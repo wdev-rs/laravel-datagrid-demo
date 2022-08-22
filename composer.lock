@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccbd816a07b206f971042295b899d1ba",
+    "content-hash": "a2e0b95e4cdcefa94fd8ae31460e6169",
     "packages": [
         {
             "name": "brick/math",
@@ -5116,6 +5116,86 @@
             "time": "2022-03-08T17:03:00+00:00"
         },
         {
+            "name": "wdev-rs/laravel-datagrid",
+            "version": "dev-feature/9-Laravel-9-compatibility",
+            "dist": {
+                "type": "path",
+                "url": "../laravel-datagrid",
+                "reference": "154913924b9afce1fe7f51cf34f36c20b16fe5ce"
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
+                "php": ">=7.4|^8.0"
+            },
+            "require-dev": {
+                "daniel-werner/php-quality-tools": "^2.0",
+                "liip/rmt": "^1.6",
+                "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "WdevRs\\LaravelDatagrid\\LaravelDatagridServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelDatagrid": "WdevRs\\LaravelDatagrid\\LaravelDatagridFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WdevRs\\LaravelDatagrid\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "WdevRs\\LaravelDatagrid\\Tests\\": "tests",
+                    "WdevRs\\LaravelDatagrid\\Tests\\Database\\Factories\\": "tests/database/factories/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ],
+                "inspect": [
+                    "phpcs src",
+                    "phpstan analyze src"
+                ],
+                "inspect-fix": [
+                    "php-cs-fixer fix src",
+                    "phpcbf src"
+                ],
+                "insights": [
+                    "phpmd src text phpmd.xml"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Werner",
+                    "email": "daniel@wdev.rs",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel integration for Grid.js server side processing",
+            "homepage": "https://github.com/wdev-rs/laravel-datagrid",
+            "keywords": [
+                "laravel-datagrid",
+                "wdev-rs"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "webmozart/assert",
             "version": "1.11.0",
             "source": {
@@ -5486,6 +5566,67 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "laravel/breeze",
+            "version": "v1.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/breeze.git",
+                "reference": "6d95e9aacbe992e19c81d5cd6f7eec994e50dd8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/6d95e9aacbe992e19c81d5cd6f7eec994e50dd8d",
+                "reference": "6d95e9aacbe992e19c81d5cd6f7eec994e50dd8d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^9.21",
+                "illuminate/filesystem": "^9.21",
+                "illuminate/support": "^9.21",
+                "illuminate/validation": "^9.21",
+                "php": "^8.0.2"
+            },
+            "conflict": {
+                "laravel/framework": "<9.19.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Breeze\\BreezeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Breeze\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Minimal Laravel authentication scaffolding with Blade and Tailwind.",
+            "keywords": [
+                "auth",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/breeze/issues",
+                "source": "https://github.com/laravel/breeze"
+            },
+            "time": "2022-08-15T22:57:15+00:00"
         },
         {
             "name": "laravel/pint",
@@ -7903,7 +8044,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "wdev-rs/laravel-datagrid": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
