@@ -11,14 +11,10 @@ import './bootstrap';
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-require('./vendor/laravel-datagrid/laravel-datagrid');
-
 import Vue from 'vue'
-//
-// import DataGrid from "./vendor/laravel-datagrid/components/DataGrid";
-// Vue.component('data-grid', DataGrid);
 
-// window.Swal = require('sweetalert2/dist/sweetalert2.all');
+import DataGrid from "./vendor/laravel-datagrid/components/DataGrid";
+Vue.component('data-grid', DataGrid);
 
 const el = document.getElementById('app')
 
