@@ -2579,7 +2579,7 @@ render._withStripped = true;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var _vendor_laravel_datagrid_components_DataGrid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vendor/laravel-datagrid/components/DataGrid */ "./resources/js/vendor/laravel-datagrid/components/DataGrid.vue");
+/* harmony import */ var _vendor_laravel_datagrid_laravel_datagrid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vendor/laravel-datagrid/laravel-datagrid */ "./resources/js/vendor/laravel-datagrid/laravel-datagrid.js");
 
 /**
  * The following block of code may be used to automatically register your
@@ -2591,9 +2591,10 @@ __webpack_require__.r(__webpack_exports__);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+ // import DataGrid from "./vendor/laravel-datagrid/components/DataGrid";
+// Vue.component('data-grid', DataGrid);
 
 
-vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('data-grid', _vendor_laravel_datagrid_components_DataGrid__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var el = document.getElementById('app');
 
 if (el) {
@@ -2828,9 +2829,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "url_append": () => (/* binding */ url_append)
 /* harmony export */ });
-// import Vue from 'vue'
-// import DataGrid from "./components/DataGrid";
-// Vue.component('data-grid', DataGrid);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var _components_DataGrid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/DataGrid */ "./resources/js/vendor/laravel-datagrid/components/DataGrid.vue");
+
+
+vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('data-grid', _components_DataGrid__WEBPACK_IMPORTED_MODULE_0__["default"]);
 function url_append(url, query) {
   if (!url) {
     return '';

@@ -13,8 +13,7 @@ import './bootstrap';
 
 import Vue from 'vue'
 
-import DataGrid from "./vendor/laravel-datagrid/components/DataGrid";
-Vue.component('data-grid', DataGrid);
+import './vendor/laravel-datagrid/laravel-datagrid';
 
 const el = document.getElementById('app')
 
