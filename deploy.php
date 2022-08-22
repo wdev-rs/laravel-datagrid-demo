@@ -30,7 +30,6 @@ host('laravel-datagrid.wdev.rs')
 
 task('build', function () {
     runLocally('npm run prod');
-    runLocally('git add -A && git commit -m "Build assets"');
     runLocally('git add -A && git commit -m "Build assets" --allow-empty');
     runLocally('git push');
 });
@@ -47,4 +46,4 @@ task('reload:php-fpm', function () {
 });
 
 after('deploy', 'reload:php-fpm');
-before('deploy:symlink', 'build');
+before('deploy', 'build');
