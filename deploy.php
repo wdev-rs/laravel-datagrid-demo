@@ -29,7 +29,9 @@ host('laravel-datagrid.wdev.rs')
 // Tasks
 
 task('build', function () {
-    runLocally('npm build && git commit . && git push');
+    runLocally('npm run build');
+    runLocally('git add -A && git commit -m "Build assets"');
+    runLocally('git push');
 });
 
 // [Optional] if deploy fails automatically unlock.
