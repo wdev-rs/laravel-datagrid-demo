@@ -10,9 +10,10 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "wdev-rs/laravel-datagrid": "dev-feature/9-Laravel-9-compatibility"
+        "wdev-rs/laravel-datagrid": "^0.4.0"
     },
     "require-dev": {
+        "deployer/deployer": "^7.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.12",
         "laravel/pint": "^1.0",
@@ -65,12 +66,5 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
-        {
-            "type": "path",
-            "url": "../laravel-datagrid",
-            "options": {
-                "symlink": true
-            }
-        }
     ]
 }
