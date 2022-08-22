@@ -46,4 +46,4 @@ task('reload:php-fpm', function () {
 });
 
 after('deploy', 'reload:php-fpm');
-before('deploy', 'build');
+before('deploy:symlink', 'build');
