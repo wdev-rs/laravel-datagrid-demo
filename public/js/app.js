@@ -2591,8 +2591,6 @@ __webpack_require__.r(__webpack_exports__);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
- // import DataGrid from "./vendor/laravel-datagrid/components/DataGrid";
-// Vue.component('data-grid', DataGrid);
 
 
 var el = document.getElementById('app');
@@ -2830,10 +2828,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "url_append": () => (/* binding */ url_append)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var _components_DataGrid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/DataGrid */ "./resources/js/vendor/laravel-datagrid/components/DataGrid.vue");
+/* harmony import */ var _components_DataGrid_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/DataGrid.vue */ "./resources/js/vendor/laravel-datagrid/components/DataGrid.vue");
 
 
-vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('data-grid', _components_DataGrid__WEBPACK_IMPORTED_MODULE_0__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('data-grid', _components_DataGrid_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
 function url_append(url, query) {
   if (!url) {
     return '';
