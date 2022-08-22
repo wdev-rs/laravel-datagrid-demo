@@ -22,7 +22,7 @@ set('allow_anonymous_stats', false);
 
 // Hosts
 
-host('srv-02.wdev.rs')
+host('laravel-datagrid.wdev.rs')
     ->set('remote_user', 'deploy')
     ->set('deploy_path', '/var/www/vhosts/laravel-datagrid.wdev.rs');
 
