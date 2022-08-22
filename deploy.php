@@ -29,7 +29,7 @@ host('laravel-datagrid.wdev.rs')
 // Tasks
 
 task('build', function () {
-    run('cd {{release_path}} && npm run build');
+    run('cd {{release_path}} && build');
 });
 
 // [Optional] if deploy fails automatically unlock.
@@ -44,4 +44,4 @@ task('reload:php-fpm', function () {
 });
 
 after('deploy', 'reload:php-fpm');
-after('deploy:symlink', 'build');
+//after('deploy:symlink', 'build');
