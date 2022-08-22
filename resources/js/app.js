@@ -13,7 +13,7 @@ import './bootstrap';
 
 import Vue from 'vue'
 
-// import './vendor/laravel-datagrid/laravel-datagrid';
+import './vendor/laravel-datagrid/laravel-datagrid';
 
 const el = document.getElementById('app')
 

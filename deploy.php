@@ -29,7 +29,7 @@ host('laravel-datagrid.wdev.rs')
 // Tasks
 
 task('build', function () {
-    run('cd {{release_path}} && npm install');
+    run('cd {{release_path}} && npm ci');
     run('cd {{release_path}} && npm run build');
     run('cd {{release_path}} && rm -rf ./node_modules');
 });
