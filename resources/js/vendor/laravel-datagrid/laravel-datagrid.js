@@ -1,7 +1,7 @@
-// import Vue from 'vue'
+import Vue from 'vue'
 
-// import DataGrid from "./components/DataGrid";
-// Vue.component('data-grid', DataGrid);
+import DataGrid from "./components/DataGrid.vue";
+Vue.component('data-grid', DataGrid);
 
 export function url_append(url, query) {
     if (!url) {
