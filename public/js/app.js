@@ -2488,7 +2488,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Grid: gridjs_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['columns', 'baseUrl'],
+  props: ['rows', 'columns', 'baseUrl'],
   data: function data() {
     var _this = this;
 
@@ -2509,11 +2509,22 @@ __webpack_require__.r(__webpack_exports__);
           }, _actions_delete__WEBPACK_IMPORTED_MODULE_2__.deleteAction.call(_this, row.cells[0].data, row.cells[1].data));
         }
       }]),
-      search: _ServerConfig__WEBPACK_IMPORTED_MODULE_3__.ServerConfig.search.call(this),
-      pagination: _ServerConfig__WEBPACK_IMPORTED_MODULE_3__.ServerConfig.pagination.call(this),
-      sort: _ServerConfig__WEBPACK_IMPORTED_MODULE_3__.ServerConfig.sort.call(this),
-      server: _ServerConfig__WEBPACK_IMPORTED_MODULE_3__.ServerConfig.server.call(this)
+      serverConfig: new _ServerConfig__WEBPACK_IMPORTED_MODULE_3__.ServerConfig(this.baseUrl, this.columns)
     };
+  },
+  computed: {
+    search: function search() {
+      return this.serverConfig.search(this.rows.search);
+    },
+    pagination: function pagination() {
+      return this.serverConfig.pagination(this.rows.currentPage - 1, this.rows.limit);
+    },
+    sort: function sort() {
+      return this.serverConfig.sort();
+    },
+    server: function server() {
+      return this.serverConfig.server(this.rows);
+    }
   },
   mounted: function mounted() {},
   methods: {}
@@ -2579,13 +2590,10 @@ __webpack_require__.r(__webpack_exports__);
  */
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-// require('./vendor/laravel-datagrid/laravel-datagrid');
 
- //
 
 
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('data-grid', _vendor_laravel_datagrid_components_DataGrid__WEBPACK_IMPORTED_MODULE_1__["default"]);
-window.Swal = __webpack_require__(/*! sweetalert2/dist/sweetalert2.all */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 var el = document.getElementById('app');
 
 if (el) {
@@ -2657,31 +2665,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 var ServerConfig = /*#__PURE__*/function () {
-  function ServerConfig() {
+  function ServerConfig(baseUrl, cols) {
     _classCallCheck(this, ServerConfig);
+
+    this.cols = cols;
+    this.baseUrl = baseUrl;
+    this.initComplete = false;
   }
 
-  _createClass(ServerConfig, null, [{
+  _createClass(ServerConfig, [{
     key: "search",
-    value: function search() {
+    value: function search(keyword) {
       return {
         server: {
           url: function url(prev, keyword) {
             return (0,_laravel_datagrid__WEBPACK_IMPORTED_MODULE_0__.url_append)(prev, "search=".concat(keyword));
           }
-        }
+        },
+        debounceTimeout: 500,
+        keyword: keyword
       };
     }
   }, {
     key: "pagination",
-    value: function pagination() {
+    value: function pagination(page, limit) {
       return {
-        limit: 15,
+        limit: limit,
         server: {
           url: function url(prev, page, limit) {
             return (0,_laravel_datagrid__WEBPACK_IMPORTED_MODULE_0__.url_append)(prev, "limit=".concat(limit, "&page=").concat(page + 1));
           }
-        }
+        },
+        page: page
       };
     }
   }, {
@@ -2703,16 +2718,22 @@ var ServerConfig = /*#__PURE__*/function () {
     }
   }, {
     key: "server",
-    value: function server() {
+    value: function server(rows) {
+      var _this2 = this;
+
       return {
         url: this.baseUrl,
         data: function data(opts) {
+          // When first loading the grid don't do ajax call
+          if (!_this2.initComplete) {
+            _this2.initComplete = true;
+            return rows;
+          }
+
           return new Promise(function (resolve, reject) {
             axios.get(opts.url).then(function (result) {
-              resolve({
-                data: result.data.data,
-                total: result.data.total
-              });
+              history.pushState({}, '', opts.url);
+              resolve(result.data);
             });
           });
         }

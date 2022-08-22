@@ -402,10 +402,7 @@
 <body class="antialiased">
 <div id="app" class="relative flex items-top justify-start min-h-screen bg-gray-100 dark:bg-gray-900 py-4 sm:pt-0">
     <div class="max-w-12xl mx-auto sm:px-12 lg:px-12">
-        <data-grid
-            base-url={{$baseUrl}}
-            :columns="{{json_encode($columns)}}"
-        ></data-grid>
+        @include('vendor.laravel-datagrid.datagrid')
 
         <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
             {{--                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">--}}
