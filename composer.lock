@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e36546e11d9a9c0ccfcdce44af957942",
+    "content-hash": "e812d0114465d26dc61df19611574a58",
     "packages": [
         {
             "name": "brick/math",
@@ -5450,17 +5450,11 @@
         },
         {
             "name": "wdev-rs/laravel-datagrid",
-            "version": "0.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wdev-rs/laravel-datagrid.git",
-                "reference": "8058d00d22e6dd028eae939aec202cc86ecee1f0"
-            },
+            "version": "dev-19-support-both-gridjs-and-datagrids-own-frontend",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wdev-rs/laravel-datagrid/zipball/8058d00d22e6dd028eae939aec202cc86ecee1f0",
-                "reference": "8058d00d22e6dd028eae939aec202cc86ecee1f0",
-                "shasum": ""
+                "type": "path",
+                "url": "../laravel-datagrid",
+                "reference": "6109f55a05ec083f43620505f628e96dd4eb19e0"
             },
             "require": {
                 "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0",
@@ -5488,7 +5482,31 @@
                     "WdevRs\\LaravelDatagrid\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "WdevRs\\LaravelDatagrid\\Tests\\": "tests",
+                    "WdevRs\\LaravelDatagrid\\Tests\\Database\\Factories\\": "tests/database/factories/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ],
+                "inspect": [
+                    "phpcs src",
+                    "phpstan analyze src"
+                ],
+                "inspect-fix": [
+                    "php-cs-fixer fix src",
+                    "phpcbf src"
+                ],
+                "insights": [
+                    "phpmd src text phpmd.xml"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -5505,11 +5523,10 @@
                 "laravel-datagrid",
                 "wdev-rs"
             ],
-            "support": {
-                "issues": "https://github.com/wdev-rs/laravel-datagrid/issues",
-                "source": "https://github.com/wdev-rs/laravel-datagrid/tree/0.5.0"
-            },
-            "time": "2023-06-16T09:29:31+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "webmozart/assert",
@@ -8222,8 +8239,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0.2"
+        "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

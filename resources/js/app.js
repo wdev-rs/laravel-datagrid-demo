@@ -11,14 +11,16 @@ import './bootstrap';
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-import Vue from 'vue'
+import {createApp} from 'vue'
 
 import './vendor/laravel-datagrid/laravel-datagrid';
+import DataGrid from "./vendor/laravel-datagrid/components/DataGrid.vue";
 
-const el = document.getElementById('app')
+const app = createApp({});
 
-if (el) {
-    new Vue().$mount(el)
-}
+app.config.compilerOptions.whitespace = 'condense';
+
+app.component('data-grid', DataGrid);
+app.mount('#app')
 
 
