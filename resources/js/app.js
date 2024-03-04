@@ -13,8 +13,8 @@ import './bootstrap';
 
 import {createApp} from 'vue'
 
-import './vendor/laravel-datagrid/laravel-datagrid';
-import DataGrid from "./vendor/laravel-datagrid/components/DataGrid.vue";
+import './vendor/laravel-datagrid/gridjs/laravel-datagrid';
+import DataGrid from "./vendor/laravel-datagrid/gridjs/components/DataGrid.vue";
 
 const app = createApp({});
 
