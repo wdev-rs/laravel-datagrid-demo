@@ -64,13 +64,6 @@ export default {
             this.server.sort(this.order, this.dir).then(
                 (result) => this.data_rows = result
             );
-
-            // this.$inertia.get(route(route().current()), {
-            //     ...route().params, ...{
-            //         order: this.order,
-            //         dir: this.dir
-            //     }
-            // }, {preserveState: false});
         },
         sortIcon(column) {
             let orderIndex = this.order.indexOf(column.id);

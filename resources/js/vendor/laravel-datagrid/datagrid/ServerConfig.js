@@ -6,44 +6,64 @@ export class ServerConfig {
     }
 
     search(keyword) {
-        const urlSearchParams = new URLSearchParams(window.location.search),
-            baseUrl = (window.location.origin + window.location.pathname).replace(/\/$/, "");
+        const params = this.params();
+        params.delete('search');
+        params.delete('page');
+        params.delete('limit');
 
-        urlSearchParams.set('search', keyword)
+        if (keyword.length) {
+            params.set('search', keyword)
+        }
 
-        const url = baseUrl + '?' + urlSearchParams.toString();
-        return this.get(url);
+        return this.get(params);
     }
 
     pagination(page, limit) {
+        const params = this.params();
+
+        params.set('page', page)
+        params.set('limit', limit)
+
+        return this.get(params);
     }
 
     sort(order, dir) {
-        const urlSearchParams = new URLSearchParams(window.location.search),
-            baseUrl = (window.location.origin + window.location.pathname).replace(/\/$/, "");
+        const params = this.params();
 
-        urlSearchParams.delete('order[]');
-        urlSearchParams.delete('dir[]');
+        params.delete('order[]');
+        params.delete('dir[]');
 
         if (order.length) {
             order.forEach(function (ord, index) {
-                urlSearchParams.append('order[]', ord)
-                urlSearchParams.append('dir[]', dir[index] || 'asc')
+                params.append('order[]', ord)
+                params.append('dir[]', dir[index] || 'asc')
             });
         }
 
-        const url = baseUrl + '?' + urlSearchParams.toString();
-
-        return this.get(url);
+        return this.get(params);
     }
 
-    get(url) {
-        console.log(url);
+    get(params) {
+        params.delete('t');
+
+        const historyUrl = this.baseUrl() + (params.size ? '?' + params.toString() : '');
+
+        params.set('t', Date.now());
+        const nocacheUrl = this.baseUrl() + '?' + params.toString();
+
         return new Promise((resolve, reject) => {
-            axios.get(url).then(result => {
-                history.pushState({}, '', url);
+            axios.get(nocacheUrl).then(result => {
+                history.pushState({}, '', historyUrl);
                 resolve(result.data);
             });
         });
+    }
+
+    baseUrl() {
+        return (window.location.origin + window.location.pathname);
+    }
+
+    params() {
+        return new URLSearchParams(window.location.search)
     }
 }
