@@ -217,8 +217,7 @@ export default {
                         </div>
                     </td>
 
-                    <td v-for="(column, index) in data_columns" class="px-4 py-4">
-                        {{ row[column.id] || dot(column.id, row) }}
+                    <td v-for="(column, index) in data_columns" class="px-4 py-4" v-html="row[column.id] || dot(column.id, row)">
                     </td>
                     <td class="px-1 py-4">
                         <slot name="actions" v-bind:row="row" v-bind:key="data_rows.key">

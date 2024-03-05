@@ -16,7 +16,7 @@
         :columns="props.columns"
         :rows="props.rows"
         :mass-actions="[{'action' : 'massDelete', 'label': 'Delete'}]"
-        @massDelete="(selectedIds) => alert('Simulating mass delete on ids: ' + selectedIds.join(','))"
+        @massDelete="(selectedIds) => alert('Simulating mass delete on id(s): ' + selectedIds.join(','))"
     ></data-grid>
 </template>
 
