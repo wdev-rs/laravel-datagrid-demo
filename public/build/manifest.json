@@ -7,11 +7,6 @@
       "assets/app.9f447f6a.css"
     ]
   },
-  "resources/js/vendor/laravel-datagrid/datagrid/css/datagrid.css": {
-    "file": "assets/datagrid.9f447f6a.css",
-    "src": "resources/js/vendor/laravel-datagrid/datagrid/css/datagrid.css",
-    "isEntry": true
-  },
   "resources/js/app.css": {
     "file": "assets/app.9f447f6a.css",
     "src": "resources/js/app.css"
