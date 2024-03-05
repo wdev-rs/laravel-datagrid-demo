@@ -1,5 +1,3 @@
-import {url_append} from "../laravel-datagrid";
-
 export class ServerConfig {
 
     constructor() {
