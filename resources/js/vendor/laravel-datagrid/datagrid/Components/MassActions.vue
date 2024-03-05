@@ -71,7 +71,7 @@ const selectedActionLabel = computed(() => {
             </template>
 
             <template #content>
-                'Are you sure you want to run action?
+                Are you sure you want to run action?
             </template>
 
             <template #footer>

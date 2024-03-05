@@ -13,14 +13,13 @@ import './bootstrap';
 
 import {createApp} from 'vue'
 
-// import './vendor/laravel-datagrid/gridjs/laravel-datagrid';
-import DataGrid from "./vendor/laravel-datagrid/datagrid/Components/DataGrid.vue";
+import DataGridWrapper from "./vendor/laravel-datagrid/datagrid/Components/DataGridWrapper.vue";
 
 const app = createApp({});
 
 app.config.compilerOptions.whitespace = 'condense';
 
-app.component('data-grid', DataGrid);
+app.component('data-grid-wrapper', DataGridWrapper);
 app.mount('#app')
 
 
