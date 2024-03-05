@@ -1,5 +1,5 @@
 <script setup>
-    import DataGrid from './DataGrid.vue'
+    import DataGrid from './../vendor/laravel-datagrid/datagrid/Components/DataGrid.vue'
 
     const props = defineProps({
         columns: Array,

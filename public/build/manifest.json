@@ -1,12 +1,19 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app.2477b9f3.js",
+    "file": "assets/app.be4c8add.js",
     "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app.9f447f6a.css"
+    ]
+  },
+  "resources/js/vendor/laravel-datagrid/datagrid/css/datagrid.css": {
+    "file": "assets/datagrid.9f447f6a.css",
+    "src": "resources/js/vendor/laravel-datagrid/datagrid/css/datagrid.css",
     "isEntry": true
   },
-  "resources/css/datagrid.css": {
-    "file": "assets/datagrid.9f447f6a.css",
-    "src": "resources/css/datagrid.css",
-    "isEntry": true
+  "resources/js/app.css": {
+    "file": "assets/app.9f447f6a.css",
+    "src": "resources/js/app.css"
   }
 }

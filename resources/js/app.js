@@ -13,7 +13,7 @@ import './bootstrap';
 
 import {createApp} from 'vue'
 
-import DataGridWrapper from "./vendor/laravel-datagrid/datagrid/Components/DataGridWrapper.vue";
+import DataGridWrapper from "./Components/DataGridWrapper.vue";
 
 const app = createApp({});
 

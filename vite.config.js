@@ -6,7 +6,7 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
     plugins: [
         laravel([
-            'resources/css/datagrid.css',
+            'resources/js/vendor/laravel-datagrid/datagrid/css/datagrid.css',
             'resources/js/app.js',
         ]),
         // react(),

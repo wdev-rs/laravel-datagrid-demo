@@ -420,6 +420,5 @@
     </div>
 </div>
 @vite(['resources/js/app.js'])
-@vite(['resources/css/datagrid.css'])
 </body>
 </html>
