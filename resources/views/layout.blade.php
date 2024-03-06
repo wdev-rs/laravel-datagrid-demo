@@ -405,13 +405,37 @@
             padding: 7px;
             border-radius: 2px;
         }
+
+        .nav {
+            background-color: #f3f4f6;
+            padding: 10px 5px 5px 5px;
+            text-align: center;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+
+        .nav-item {
+            margin: 0px 5px;
+        }
+
+        .w-full {
+            width: 100%;
+        }
     </style>
 </head>
 <body class="antialiased">
-<div id="app" class="relative flex items-top justify-start min-h-screen bg-gray-100 dark:bg-gray-900 py-4 sm:pt-0">
-    <div class="max-w-12xl mx-auto sm:px-12 lg:px-12">
-        @include('vendor.laravel-datagrid.datagrid')
+<header>
+    <div class="nav">
+        <a href="/gridjs" class="nav-item {{request()->routeIs('gridjs') ? 'active' : ''}}">Gridjs</a>
+        <a href="/datagrid" class="nav-item {{request()->routeIs('datagrid') ? 'active' : ''}}">DataGridVue3</a>
+    </div>
+</header>
 
+<div id="app" class="relative flex items-top justify-start min-h-screen bg-gray-100 dark:bg-gray-900 py-4 sm:pt-0">
+    <div class="p-4 w-full max-w-12xl mx-auto sm:px-12 lg:px-12">
+        @yield('datagrid')
         <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
             <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                 Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})

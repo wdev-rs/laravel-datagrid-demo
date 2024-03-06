@@ -9,6 +9,16 @@ class ProductsController extends Controller
 {
     public function index(ProductsDataGrid $dataGrid)
     {
-        return $dataGrid->render('welcome');
+        return redirect(route('datagrid'));
+    }
+
+    public function gridjs(ProductsDataGrid $dataGrid)
+    {
+        return $dataGrid->render('laravel-datagrid::datagrid-gridjs');
+    }
+
+    public function datagrid(ProductsDataGrid $dataGrid)
+    {
+        return $dataGrid->render('laravel-datagrid::datagrid');
     }
 }
