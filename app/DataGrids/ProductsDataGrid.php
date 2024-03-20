@@ -36,4 +36,17 @@ class ProductsDataGrid extends DataGrid
             )
             ->column('sort_order', 'Sort order', null, 100);
     }
+
+    public function search(?string $search): DataGrid
+    {
+        $filters = collect(request()->get('filters'));
+
+        $name = $filters->get('name');
+        $code = $filters->get('code');
+
+        $this->dataSource->query->when($name, fn ($query) => $query->where('name', 'like', '%'.$name.'%'));
+        $this->dataSource->query->when($code, fn ($query) => $query->where('code', 'like', $code.'%'));
+
+        return $this;
+    }
 }
