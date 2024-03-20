@@ -19,6 +19,8 @@
     const dataColumns = ref(props.columns);
     const dataRows = ref(props.rows);
 
+    const customFilteringEnabled = ref(false);
+
     const filters = ref({
         name: '',
         code: ''
@@ -59,14 +61,19 @@
 </script>
 
 <template>
-<!--    {{dataRows}}-->
+
+    <label class="p-3 bg-white rounded text-slate-600" for="">
+        <input type="checkbox" v-model="customFilteringEnabled">
+        Custom filtering enabled
+    </label>
+
     <data-grid
         :columns="dataColumns"
         :rows="dataRows"
         :mass-actions="[{'action' : 'massDelete', 'label': 'Delete'}]"
         @massDelete="(selectedIds) => alert('Simulating mass delete on id(s): ' + selectedIds.join(','))"
     >
-        <template #filters>
+        <template v-if="customFilteringEnabled" #filters>
             <form  class="p-3 mb-6 rounded bg-gray-50" @submit.prevent="filter">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="mx-1">

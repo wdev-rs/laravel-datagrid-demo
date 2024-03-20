@@ -39,6 +39,8 @@ class ProductsDataGrid extends DataGrid
 
     public function search(?string $search): DataGrid
     {
+        parent::search($search);
+
         $filters = collect(request()->get('filters'));
 
         $name = $filters->get('name');
