@@ -23,8 +23,11 @@ set('allow_anonymous_stats', false);
 // Hosts
 
 host('laravel-datagrid.wdev.rs')
+    ->set('labels', ['stage' => 'production'])
     ->set('remote_user', 'deploy')
-    ->set('deploy_path', '/var/www/vhosts/laravel-datagrid.wdev.rs');
+    ->set('deploy_path', '/var/www/vhosts/laravel-datagrid.wdev.rs')
+    ->set('branch', 'main')
+    ->set('keep_releases', '2');
 
 // Tasks
 
