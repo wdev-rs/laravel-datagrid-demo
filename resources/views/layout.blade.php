@@ -427,6 +427,12 @@
 </head>
 <body class="antialiased">
 <header>
+    <div class="flex justify-end pt-2 sm:justify-start bg-gray-100">
+        <div class="ml-8 text-left text-sm text-gray-500 sm:text-right sm:ml-0 pr-8">
+            Laravel v{{ Illuminate\Foundation\Application::VERSION }}<br/>
+            Laravel DataGrid v1.0.0
+        </div>
+    </div>
     <div class="nav">
         <a href="/gridjs" class="nav-item {{request()->routeIs('gridjs') ? 'active' : ''}}">Gridjs</a>
         <a href="/datagrid" class="nav-item {{request()->routeIs('datagrid') ? 'active' : ''}}">DataGridVue3</a>
@@ -436,11 +442,6 @@
 <div id="app" class="relative flex items-top justify-start min-h-screen bg-gray-100 dark:bg-gray-900 py-4 sm:pt-0">
     <div class="p-4 w-full max-w-12xl mx-auto sm:px-12 lg:px-12">
         @yield('datagrid')
-        <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-            <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-            </div>
-        </div>
     </div>
 </div>
 @vite(['resources/js/app.js'])

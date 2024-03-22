@@ -62,8 +62,8 @@
 
 <template>
 
-    <label class="p-3 bg-white rounded text-slate-600" for="">
-        <input type="checkbox" v-model="customFilteringEnabled">
+    <label class="p-3 bg-white rounded text-slate-600" for="custom-filtering-enabled">
+        <input id="custom-filtering-enabled" type="checkbox" v-model="customFilteringEnabled">
         Custom filtering enabled
     </label>
 
